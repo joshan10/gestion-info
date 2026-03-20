@@ -1,0 +1,2 @@
+print("Sistema listo")
+
