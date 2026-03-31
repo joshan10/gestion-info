@@ -1,10 +1,8 @@
 from validate import is_valid_name, is_valid_email, is_valid_status, is_valid_age
+from file import load_data, save_data
 
-# Datos en memoria (2 usuarios iniciales)
-users = [
-    {"id": 1, "name": "Juan", "email": "juan@gmail.com", "age": 20, "status": "active"},
-    {"id": 2, "name": "Ana", "email": "ana@gmail.com", "age": 25, "status": "inactive"}
-]
+# Datos cargados
+users = load_data()
 
 # Sets para control de duplicados
 ids = {1, 2}
@@ -17,7 +15,7 @@ def generate_id():
     return max(ids) + 1
 
 
-def create_user(name, email, age, status):
+def create_user(users, name, email, age, status):
     """Crea un nuevo usuario con ID automático."""
     
     user_id = generate_id()
@@ -52,7 +50,7 @@ def create_user(name, email, age, status):
     
     print(f" Usuario creado con ID: {user_id}")
 
-def list_users():
+def list_users(users):
     """Muestra todos los usuarios registrados."""
     
     if not users:
