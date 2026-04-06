@@ -15,7 +15,7 @@ def generate_id():
     return max(ids) + 1
 
 
-def create_user(users, name, email, age, status):
+def new_register(users, name, email, age, status):
     """Crea un nuevo usuario con ID automático."""
     
     user_id = generate_id()
@@ -50,7 +50,7 @@ def create_user(users, name, email, age, status):
     
     print(f" Usuario creado con ID: {user_id}")
 
-def list_users(users):
+def list_records(users):
     """Muestra todos los usuarios registrados."""
     
     if not users:
@@ -60,3 +60,64 @@ def list_users(users):
     print("\n--- LISTA DE USUARIOS ---")
     for u in users:
         print(f"ID: {u['id']} | Name: {u['name']} | Email: {u['email']} | Age: {u['age']} | Status: {u['status']}")
+    
+    active_users = [u for u in users if u["status"] == "active"]
+    
+    print(f"\nUsuarios activos: {len(active_users)}")
+
+
+def search_record(users, user_id):
+    """Busca un usuario por ID usando list comprehension."""
+    result = [u for u in users if u["id"] == user_id]
+
+    if not result:
+        print("Usuario no encontrado")
+        return None
+    
+    return result[0]
+
+def update_record(users, user_id, name=None, email=None, age=None, status=None):
+    """Actualiza un usuario."""
+    
+    user = search_record(users, user_id)
+    
+    if user is None:
+        return
+    
+    if name:
+        if is_valid_name(name):
+            user["name"] = name
+        else:
+            print("Nombre inválido")
+    
+    if email:
+        if is_valid_email(email, [u["email"] for u in users if u["id"] != user_id]):
+            user["email"] = email
+        else:
+            print("Correo inválido o duplicado")
+    
+    if age is not None:
+        if is_valid_age(age):
+            user["age"] = age
+        else:
+            print("Edad inválida")
+    
+    if status:
+        if is_valid_status(status):
+            user["status"] = status
+        else:
+            print("Estado inválido")
+    
+    print("Usuario actualizado")
+
+
+def delete_record(users, user_id):
+    """Elimina un usuario."""
+    
+    user = search_record(users, user_id)
+    
+    if user is None:
+        return
+    
+    users.remove(user)
+    print("Usuario eliminado")
