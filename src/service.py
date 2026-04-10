@@ -8,17 +8,19 @@ users = load_data()
 ids = {1, 2}
 emails = {"juan@gmail.com", "ana@gmail.com"}
 
-def generate_id():
+def generate_id(users):
     """Genera un ID único automáticamente."""
-    if not ids:
+    
+    if not users:
         return 1
-    return max(ids) + 1
+    
+    return max(user["id"] for user in users) + 1
 
 
 def new_register(users, name, email, age, status):
     """Crea un nuevo usuario con ID automático."""
     
-    user_id = generate_id()
+    user_id = generate_id(users)
     
     if not is_valid_name(name):
         print("ERROR: Nombre inválido")
@@ -45,7 +47,6 @@ def new_register(users, name, email, age, status):
     }
     
     users.append(user)
-    ids.add(user_id)
     emails.add(email)
     
     print(f" Usuario creado con ID: {user_id}")
@@ -76,37 +77,17 @@ def search_record(users, user_id):
     
     return result[0]
 
-def update_record(users, user_id, name=None, email=None, age=None, status=None):
-    """Actualiza un usuario."""
+def update_record(users, user_id, **kwargs):
+    """Actualiza un usuario usando kwargs."""
     
     user = search_record(users, user_id)
     
-    if user is None:
+    if not user:
         return
     
-    if name:
-        if is_valid_name(name):
-            user["name"] = name
-        else:
-            print("Nombre inválido")
-    
-    if email:
-        if is_valid_email(email, [u["email"] for u in users if u["id"] != user_id]):
-            user["email"] = email
-        else:
-            print("Correo inválido o duplicado")
-    
-    if age is not None:
-        if is_valid_age(age):
-            user["age"] = age
-        else:
-            print("Edad inválida")
-    
-    if status:
-        if is_valid_status(status):
-            user["status"] = status
-        else:
-            print("Estado inválido")
+    for key, value in kwargs.items():
+        if value is not None and key in user:
+            user[key] = value
     
     print("Usuario actualizado")
 

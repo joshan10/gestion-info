@@ -1,6 +1,7 @@
 from colorama import Fore, Style, init
 from file import load_data, save_data
 from service import new_register, list_records, search_record, update_record, delete_record
+from integration import fetch_users_from_api
 
 # Inicializar colorama
 init(autoreset=True)
@@ -15,7 +16,8 @@ def show_menu():
     print("3. Buscar usuario")
     print("4. Actualizar usuario")
     print("5. Eliminar usuario")
-    print("6. Salir")
+    print("6. Importar usuarios desde API")
+    print("7. Salir")
 
 
 def run_menu():
@@ -88,7 +90,14 @@ def run_menu():
                     print(Fore.RED + " Edad inválida")
                     continue
             
-            update_record(users, user_id, name or None, email or None, age, status or None)
+            update_record(
+                users,
+                user_id,
+                name=name or None,
+                email=email or None,
+                age=age,
+                status=status or None
+            )
             save_data(users)
         
         # OPCIÓN 5
@@ -104,6 +113,11 @@ def run_menu():
         
         # OPCIÓN 6
         elif option == 6:
+            fetch_users_from_api(users)
+            save_data(users)
+        
+        # OPCIÓN 7
+        elif option == 7:
             print(Fore.CYAN + "👋 Saliendo del sistema...")
             break
         
