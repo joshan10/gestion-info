@@ -22,4 +22,7 @@ def contar_lineas_archivo():
         except NameError:
             print("No se pudo cerrar el archivo porque no se abrió correctamente.")
 
-contar_lineas_archivo()
+
+def main():
+    contar_lineas_archivo()
+    print("Ejecutando", __name__)

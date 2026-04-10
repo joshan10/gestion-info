@@ -19,5 +19,12 @@
         "email": "brayan@gmail.com",
         "age": 19,
         "status": "active"
+    },
+    {
+        "id": 4,
+        "name": "laura",
+        "email": "laura10@gmial.com",
+        "age": 15,
+        "status": "active"
     }
 ]

@@ -14,4 +14,6 @@ def calcular_promedio():
      except RuntimeError as e:
          print(f"Error: {e}")
 
-calcular_promedio()
+def main():
+    calcular_promedio()
+    print("Ejecutando", __name__)

@@ -1,5 +1,5 @@
-from validate import is_valid_name, is_valid_email, is_valid_status, is_valid_age
-from file import load_data, save_data
+from src.validate import is_valid_name, is_valid_email, is_valid_status, is_valid_age
+from src.file import load_data, save_data
 
 # Datos cargados
 users = load_data()
@@ -17,7 +17,7 @@ def generate_id(users):
     return max(user["id"] for user in users) + 1
 
 
-def new_register(users, name, email, age, status):
+def new_register(users: list, name: str, email: str, age: int, status: str) -> None:
     """Crea un nuevo usuario con ID automático."""
     
     user_id = generate_id(users)

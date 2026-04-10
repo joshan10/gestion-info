@@ -1,69 +1,145 @@
-# 🧠 Sistema de Gestión de Usuarios
+# 🧠 Sistema de Gestión de Usuarios en Python
 
-El Sistema de Gestión de Usuarios es una aplicación completa diseñada para administrar datos de usuarios de manera eficiente. Proporciona una interfaz basada en menú que permite interactuar con el sistema, creando nuevos usuarios, listando usuarios existentes, buscando, actualizando y eliminando usuarios. El sistema garantiza la validación y consistencia de los datos, convirtiéndolo en una solución confiable para la gestión de información.
+## 📌 Descripción
 
-## 🚀 Características
+Este proyecto es un sistema de gestión de usuarios desarrollado en Python.
+Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) con persistencia en archivos JSON, siguiendo buenas prácticas de desarrollo.
 
-- **Gestión de Usuarios**: Crear, listar, buscar, actualizar y eliminar usuarios  
-- **Validación de Datos**: Garantiza que la información sea válida y consistente  
-- **Interfaz por Menú**: Interfaz fácil de usar para interactuar con el sistema  
-- **Almacenamiento en JSON**: Guarda los datos en un archivo JSON para fácil acceso  
-- **Manejo de Errores**: Control de excepciones y posibles fallos  
+Además, incluye un menú dinámico para ejecutar ejercicios independientes desde la carpeta `assets`.
 
-## 🛠️ Tecnologías Utilizadas
+---
 
-- **Python**: Lenguaje de programación principal  
-- **JSON**: Formato de almacenamiento de datos  
-- **Interfaz por Menú**: Implementada con funciones de entrada/salida de Python  
-- **Validación de Datos**: Funciones personalizadas para validar información  
-- **Manejo de Errores**: Uso de bloques `try-except`  
+## 🚀 Funcionalidades
 
-## 📦 Instalación
+### 🔹 Gestión de usuarios
 
-Para instalar el Sistema de Gestión de Usuarios, sigue estos pasos:
+* Crear usuarios
+* Listar usuarios
+* Buscar usuarios por ID
+* Actualizar usuarios
+* Eliminar usuarios
+* Persistencia en archivo JSON
 
-1. Clona el repositorio usando `git clone`  
-2. Instala las dependencias con `pip install -r requirements.txt`  
-3. Ejecuta la aplicación con `python main.py`  
+### 🔹 Integraciones
 
-## 💻 Uso
+* Importación de datos desde API usando `requests`
 
-Para usar el sistema, sigue estos pasos:
+### 🔹 Ejercicios
 
-1. Ejecuta la aplicación con `python main.py`  
-2. Interactúa con el menú para gestionar usuarios  
-3. Usa la opción `create` para crear un usuario  
-4. Usa la opción `list` para listar todos los usuarios  
-5. Usa la opción `search` para buscar un usuario  
-6. Usa la opción `update` para actualizar un usuario  
-7. Usa la opción `delete` para eliminar un usuario  
+* Menú dinámico que detecta automáticamente archivos `exerciseX.py`
+* Ejecución independiente de cada ejercicio
 
-## 📂 Estructura del Proyecto
+### 🔹 Testing
 
-```bash
+* Pruebas automatizadas con `pytest`
+
+---
+
+## 🗂️ Estructura del proyecto
+
+```
 gestion-info/
-├─ README.md                         
-├─ requirements.txt
-├─ .gitignore
+├─ src/
+│  ├─ main.py
+│  ├─ menu.py
+│  ├─ service.py
+│  ├─ file.py
+│  ├─ validate.py
+│  ├─ integration.py
+│  ├─ exercises_menu.py
+│  └─ __init__.py
+├─ assets/
+│  ├─ exercise1.py
+│  ├─ exercise2.py
+│  ├─ exercise3.py
+│  ├─ exercise4.py
+│  ├─ exercise5.py
+│  ├─ exercise6.py
+│  └─ test_exercise6.py
+├─ tests/
+│  └─ test_service.py
 ├─ data/
-│  └─ records.json                # o registros.csv / registros.txt
-└─ src/
-   ├─ main.py                    # punto de entrada
-   ├─ menu.py                    # interfaz de consola (UI)
-   ├─ service.py                 # lógica (CRUD)
-   ├─ file.py                    # persistencia (leer/guardar)
-   ├─ validate.py                # validaciones y helpers
-   └─ integration.py             # faker / pandas / requests
+│  └─ records.json
+├─ requirements.txt
+├─ pytest.ini
+└─ README.md
 ```
 
-## 🤝 Contributing
-Para contribuir al proyecto, sigue estos pasos:
+---
 
-1. Haz un fork del repositorio usando git fork
-2. Realiza cambios y haz commit con git commit
-3. Sube los cambios con git push
-4. Crea un Pull Request para integrar los cambios
+## ⚙️ Instalación
 
-## 📝 License
-Este proyecto está bajo la licencia MIT.
+1. Clonar el repositorio:
 
+```
+git clone <URL_DEL_REPO>
+cd gestion-info
+```
+
+2. Crear entorno virtual:
+
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. Instalar dependencias:
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Ejecución del programa
+
+Ejecutar desde la raíz del proyecto:
+
+```
+python -m src.main
+```
+
+---
+
+## 🧪 Ejecutar pruebas
+
+```
+pytest
+```
+
+---
+
+## 🧠 Ejecución de ejercicios
+
+Desde el menú principal, selecciona la opción de ejercicios para ejecutar los archivos dentro de la carpeta `assets`.
+
+Cada ejercicio debe contener una función `main()`.
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+* Python 3
+* JSON (persistencia de datos)
+* colorama (interfaz en consola)
+* requests (consumo de API)
+* pytest (pruebas automatizadas)
+
+---
+
+## 📌 Buenas prácticas aplicadas
+
+* Código modular (separación por responsabilidades)
+* Uso de estructuras de datos (listas, diccionarios, sets)
+* Manejo de errores con try-except
+* Validaciones centralizadas
+* Uso de `**kwargs` en funciones dinámicas
+* Uso de imports absolutos
+* Testing automatizado
+
+---
+
+## 👨‍💻 Autor
+
+Proyecto desarrollado como parte de formación en programación y desarrollo backend en Python.
+by joshan pereira

@@ -1,7 +1,8 @@
 from colorama import Fore, Style, init
-from file import load_data, save_data
-from service import new_register, list_records, search_record, update_record, delete_record
-from integration import fetch_users_from_api
+from src.file import load_data, save_data
+from src.service import new_register, list_records, search_record, update_record, delete_record
+from src.integration import fetch_users_from_api
+from assets.menu_exercise import run_exercises_menu 
 
 # Inicializar colorama
 init(autoreset=True)
@@ -17,7 +18,8 @@ def show_menu():
     print("4. Actualizar usuario")
     print("5. Eliminar usuario")
     print("6. Importar usuarios desde API")
-    print("7. Salir")
+    print("7. Ejecutar ejercicios")
+    print("8. salir")
 
 
 def run_menu():
@@ -118,6 +120,10 @@ def run_menu():
         
         # OPCIÓN 7
         elif option == 7:
+            run_exercises_menu()
+        
+        # OPCIÓN 8
+        elif option == 8:
             print(Fore.CYAN + "👋 Saliendo del sistema...")
             break
         

@@ -49,3 +49,7 @@ except ValueError:
 
 except ZeroDivisionError as e:
     print(e)
+
+
+def main():
+    print("Ejecutando", __name__)

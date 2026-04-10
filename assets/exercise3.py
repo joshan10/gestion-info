@@ -56,4 +56,6 @@ def menu():
         else:
             print("Opción no válida. Por favor, seleccione una opción del menú.")
 
-menu()
+def main():
+    menu()
+    print("Ejecutando", __name__)

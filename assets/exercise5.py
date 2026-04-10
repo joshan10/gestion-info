@@ -67,3 +67,6 @@ if __name__ == "__main__":
     
     except Exception as e:
         print(f"Error: {e}")
+
+def main():
+    print("Ejecutando", __name__)

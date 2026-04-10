@@ -2,7 +2,7 @@ import json
 
 FILE_PATCH = "data/records.json"
 
-def load_data():
+def load_data() -> list:
     """carga todos los datos desde un archivo json"""
 
     try:
